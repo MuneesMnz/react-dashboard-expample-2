@@ -1,4 +1,4 @@
-import { AttachMoney, LineStyle, PermIdentity, Storefront, Timeline, TrendingUp,BarChart, MailOutline, DynamicFeed, ChatBubbleOutline, WorkOffOutlined, Report, WorkOutlined } from '@material-ui/icons'
+import { AttachMoney, LineStyle, PermIdentity, Storefront, Timeline, TrendingUp,BarChart, MailOutline, DynamicFeed, ChatBubbleOutline, Report, WorkOutlined } from '@material-ui/icons'
 import React from 'react'
 
 

@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Topbar />
-      <div className="flex ">
+      <div className="flex mt-2 ">
         <Sidebar />
         <Home />
       </div>
