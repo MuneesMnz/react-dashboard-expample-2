@@ -1,10 +1,15 @@
 import { DeleteOutline, Edit } from "@material-ui/icons";
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
+import React, { useState } from "react";
 import { users } from "../dummyData";
+import { Link } from "react-router-dom";
 
 const UsersList = () => {
-  const columns = [
+const [data,setData]=useState(users)
+const handleDelete=(id)=>{
+    setData(data.filter(item=>item.id !==id))
+}
+const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
       field: "username",
@@ -33,8 +38,10 @@ const UsersList = () => {
       renderCell: (params) => {
         return (
           <div>
-            <Edit className="text-blue-800 mr-3 cursor-pointer " />
-            <DeleteOutline className="text-red-800 cursor-pointer" />
+            <Link >
+              <Edit className="text-blue-800 mr-3 cursor-pointer " />
+            </Link>
+            <DeleteOutline className="text-red-800 cursor-pointer" onClick={()=>handleDelete(params.row.id)} />
           </div>
         );
       },
@@ -42,9 +49,9 @@ const UsersList = () => {
   ];
 
   return (
-    <div className="flex-[4] h-[620px] w-full">
+    <div className="flex-[4] p-5 h-[620px] w-full">
       <DataGrid
-        rows={users}
+        rows={data}
         columns={columns}
         initialState={{
           pagination: {
