@@ -38,7 +38,7 @@ const columns = [
       renderCell: (params) => {
         return (
           <div>
-            <Link >
+            <Link to={`/users/${params.row.id}`} >
               <Edit className="text-blue-800 mr-3 cursor-pointer " />
             </Link>
             <DeleteOutline className="text-red-800 cursor-pointer" onClick={()=>handleDelete(params.row.id)} />

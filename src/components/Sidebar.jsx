@@ -1,5 +1,6 @@
 import { AttachMoney, LineStyle, PermIdentity, Storefront, Timeline, TrendingUp,BarChart, MailOutline, DynamicFeed, ChatBubbleOutline, Report, WorkOutlined } from '@material-ui/icons'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Sidebar = () => {
@@ -9,10 +10,12 @@ const Sidebar = () => {
         <div className='mb-3'>
             <h3 className='text-sm text-gray-500 font-semibold'>Dashboard</h3>
             <ul className=' list-none p-1'>
-                <li  className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
+               <Link to='/'>
+               <li  className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <LineStyle  className='mr-1 text-lg' />
                     Home
                 </li>
+               </Link>
                 <li className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <Timeline className='mr-1 text-lg' />
                     Analitics
@@ -27,14 +30,18 @@ const Sidebar = () => {
         <div className='mb-3'>
             <h3 className='text-sm text-gray-500 font-semibold'>Quick Menu</h3>
             <ul className=' list-none p-1'>
-                <li  className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
+               <Link to='/users' >
+               <li  className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <PermIdentity  className='mr-1 text-lg' />
                     Users
                 </li>
+               </Link>
+               <Link className='/products'>
                 <li className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <Storefront className='mr-1 text-lg' />
                     Products
                 </li>
+               </Link>
                 <li className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <AttachMoney className='mr-1 text-lg' />
                     Transactions
