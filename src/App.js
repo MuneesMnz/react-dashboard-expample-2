@@ -8,25 +8,43 @@ import NewUser from "./pages/NewUser";
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
 import NewProduct from "./pages/NewProduct";
+import Login from "./pages/Login";
+import Main from "./pages/Main";
 
 function App() {
   return (
     <BrowserRouter>
-      <Topbar />
-      <div className="flex mt-2 ">
-        <Sidebar />
-        <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route path="/users" element={<UsersList />}/>
-          <Route path="/users/:id" element={<User />}/>
-          <Route path="/newuser" element={<NewUser />}/>
-          <Route path="/products" element={<ProductList />}/>
-          <Route path="/products/:id" element={<Product />}/>
-          <Route path="/newproduct" element={<NewProduct />}/>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route exact path="/" element={<Main />}>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/users" element={<UsersList />} />
+          <Route path="/users/:id" element={<User />} />
+          <Route path="/newuser" element={<NewUser />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/products/:id" element={<Product />} />
+          <Route path="/newproduct" element={<NewProduct />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+{
+  /* <Routes>
+        <Route path="/login" element={<Login />} />
+        <Topbar />
+        <div className="flex mt-2 ">
+          <Sidebar />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/users" element={<UsersList />} />
+          <Route path="/users/:id" element={<User />} />
+          <Route path="/newuser" element={<NewUser />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/products/:id" element={<Product />} />
+          <Route path="/newproduct" element={<NewProduct />} />
+        </div>
+      </Routes> */
+}
