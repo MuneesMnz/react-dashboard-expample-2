@@ -36,7 +36,7 @@ const Sidebar = () => {
                     Users
                 </li>
                </Link>
-               <Link className='/products'>
+               <Link to='/products'>
                 <li className={`p-1 cursor-pointer flex items-center rounded-lg hover:bg-blue-100`}>
                     <Storefront className='mr-1 text-lg' />
                     Products
