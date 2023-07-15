@@ -1,6 +1,6 @@
 import React from "react";
 import FeaturedInfo from "../components/FeaturedInfo";
-import Chart from "../components/Chart";
+import Chart from "../components/Chart" ;
 import { data } from "../dummyData";
 import WidgetSm from "../components/WidgetSm";
 import WidgetLg from "../components/WidgetLg";
