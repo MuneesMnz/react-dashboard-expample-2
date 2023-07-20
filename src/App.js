@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 import Home from "./pages/Home";
@@ -12,19 +12,25 @@ import Login from "./pages/Login";
 import Main from "./pages/Main";
 
 function App() {
+  const admin = JSON.parse(
+    JSON.parse(localStorage.getItem("persist:root")).user
+  ).currentUser.isAdmin;
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route exact path="/" element={<Main />}>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/users" element={<UsersList />} />
-          <Route path="/users/:id" element={<User />} />
-          <Route path="/newuser" element={<NewUser />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/products/:id" element={<Product />} />
-          <Route path="/newproduct" element={<NewProduct />} />
-        </Route>
+        <Route path="/login" element={admin?<Navigate to='/'/> :<Login />} />
+        {admin &&
+          <Route exact path="/" element={<Main />}>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/users" element={<UsersList />} />
+            <Route path="/users/:id" element={<User />} />
+            <Route path="/newuser" element={<NewUser />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/products/:id" element={<Product />} />
+            <Route path="/newproduct" element={<NewProduct />} />
+          </Route>
+        }
       </Routes>
     </BrowserRouter>
   );
